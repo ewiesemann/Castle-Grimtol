@@ -9,6 +9,12 @@ namespace CastleGrimtol.Project
         public int Score { get; set; }
         public List<Item> Inventory { get; set; }
 
+        public Player(string name)
+        {
+            Name = name;
+            Inventory = new List<Item>();
+        }
+
         public void ShowIventory()
         {
             Console.WriteLine($@"You currently have {Inventory[0].Name} | {Inventory[0].Description}");
