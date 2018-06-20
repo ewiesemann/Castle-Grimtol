@@ -9,6 +9,7 @@ namespace CastleGrimtol.Project
         public Player CurrentPlayer { get; set; }
         public bool Playing { get; set; }
 
+        //----------This is the game guide section----------\\
         public void Guide()
         {
             Console.WriteLine("Type 'Help' to access this game guide");
