@@ -15,9 +15,10 @@ namespace CastleGrimtol.Project
             Inventory = new List<Item>();
         }
 
-        public void ShowIventory()
+        public void ShowIventory(Player CurrentPlayer)
         {
             Console.WriteLine($@"You currently have {Inventory[0].Name} | {Inventory[0].Description}");
         }
+
     }
 }

@@ -21,6 +21,12 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Type 'Use <ItemName>' to use and Item from your Inventory");
         }
 
+        public void StartGame()
+        {
+
+
+        }
+
         public void Quit()
         {
             Playing = false;
@@ -94,15 +100,13 @@ namespace CastleGrimtol.Project
             //Barracks
             Item Uniform = new Item("guard uniform", "This would make a great disguise!");
             Item Bed = new Item("bed", "A good place to hide and possibly blend in.");
-           
 
             //Captain's Quarters
             Item Key = new Item("key", "Not sure what this unlocks, but a good idea to hold on to it.");
-           
 
             //Dungeon
             Item Lock = new Item("lock", "This sure looks like that key you found will unlock this.");
-            
+
 
             //Adding Items to rooms
 
@@ -125,16 +129,38 @@ namespace CastleGrimtol.Project
             CurrentRoom = EntryHallway;
         }
 
+        public void UserInput()
+        {
+            
+        }
+
         public void TakeItem(string itemName)
         {
             //check the room for the item using .find method
             //if found add to inventory and remove from room
             //if not found return invalid item
+            Item item = CurrentRoom.Items.Find(Item => Item.Name.ToLower() == itemName);
+            if (item != null)
+            {
+                CurrentRoom.Items.Remove(item);
+                CurrentPlayer.Inventory.Add(item);
+                Console.WriteLine($"{itemName} added to your inventory");
+                CurrentPlayer.ShowIventory(CurrentPlayer);
+            }
+            else
+            {
+                Console.WriteLine("You are not able to take that!");
+            }
         }
 
         public void UseItem(string itemName)
         {
             //Check to make sure item is in inventory
+            Item item = CurrentPlayer.Inventory.Find(Item => Item.Name.ToLower() == itemName);
+            if (item != null)
+            {
+
+            }
 
         }
 
