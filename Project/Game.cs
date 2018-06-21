@@ -118,10 +118,11 @@ namespace CastleGrimtol.Project
             //Dungeon
             Dungeon.Items.Add(Lock);
 
-            Console.WriteLine("Brave Young Warrior our forces are failing and the enemy grows stronger everyday.\n");
-            Console.WriteLine("I fear if we don't act now our people will be driven from their homes.\n");
-            Console.WriteLine("These dark times have left us with one final course of action. We must cut the head off of the snake by assasinating the Dark Lord of Grimtol.\n");
+            Console.WriteLine("Brave Young Warrior our forces are failing and the enemy grows stronger everyday.  I fear if we don't act now our people will be driven from their homes.");
+            Console.WriteLine("These dark times have left us with one final course of action. We must cut the head off of the snake by assasinating the Dark Lord of Grimtol.");
             Console.WriteLine("Our sources have identified a small tunnel that leads into the rear of the castle.\n");
+            Console.WriteLine("Once you sneak through the tunnel you will need to find a way to disguise yourself and kill the Dark Lord. We don't know exactly how so you'll need to use your wit and cunning to think of something.\n");
+            Console.WriteLine("Good Luck brave one.")
             
 
 
