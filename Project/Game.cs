@@ -22,6 +22,7 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Type 'X' to exit the game");
         }
 
+        //Takes in the players command inputs
         public void UserCommand()
         {
             string UserCommand = Console.ReadLine().ToUpper();
@@ -42,38 +43,26 @@ namespace CastleGrimtol.Project
                 case "W":
                     Go(UserCommand);
                     break;
+                case "take":
+                    TakeItem();
+                    break;
+                case "Use":
+                    UseItem();
+                    break;
                 case "X":
                     Console.WriteLine("Brave Adventurer ran away.\n");
                     Console.WriteLine("Bravely ran away away. \n");
                     Console.WriteLine("When Danger reared it's ugly head.\n");
-                    Console.WriteLine("You bravely rutnred your tail and fled.\n");
+                    Console.WriteLine("You bravely turnred your tail and fled.\n");
                     Console.WriteLine("Yes brave Adventurer turned about.\n");
-                    Console.WriteLine("And gallantly he chickened out");
+                    Console.WriteLine("And gallantly you chickened out");
                     Game.Quit(0);
                     break;         
             }
         }
 
-        public void Go(string UserCommand)
-        {
 
-        }
-
-        public void StartGame()
-        {
-
-        }
-
-        public void Quit()
-        {
-            Playing = false;
-        }
-
-        public void Reset()
-        {
-            Setup();
-
-        }
+        //Sets up the initial game with Rooms and Items and starting point
         public void Setup()
         {
             //----------This section is for each Room and the access they each have----------\\
@@ -173,8 +162,18 @@ namespace CastleGrimtol.Project
             CurrentRoom = EntryHallway;
         }
 
+        public void Play()
+        {
+            Setup();
 
+        }
+        public void Go(string UserCommand)
+        {
+        
 
+        }
+
+        //This sets up how a player can pick up an item and add to inventory
         public void TakeItem(string itemName)
         {
 
@@ -192,6 +191,7 @@ namespace CastleGrimtol.Project
             }
         }
 
+        //This is for how a player uses and item from their inventory
         public void UseItem(string itemName)
         {
             //Check to make sure item is in inventory
@@ -200,6 +200,19 @@ namespace CastleGrimtol.Project
             {
 
             }
+
+        }
+
+        //Leaving the game
+        public void Quit()
+        {
+            Playing = false;
+        }
+
+        //Resets the game back to the intial setup and restarts it
+        public void Reset()
+        {
+            Setup();
 
         }
 
