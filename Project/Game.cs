@@ -12,18 +12,55 @@ namespace CastleGrimtol.Project
         //----------This is the game guide section----------\\
         public void Guide()
         {
-            Console.WriteLine("Type 'Help' to access this game guide");
-            Console.WriteLine("Type 'North' to go North");
-            Console.WriteLine("Type 'South' to go South");
-            Console.WriteLine("Type 'East' to go East");
-            Console.WriteLine("Type 'West' to go West");
+            Console.WriteLine("Type 'H' to access this game guide");
+            Console.WriteLine("Type 'N' to go North");
+            Console.WriteLine("Type 'S' to go South");
+            Console.WriteLine("Type 'E' to go East");
+            Console.WriteLine("Type 'W' to go West");
             Console.WriteLine("Type 'Take <ItemName>' to pick up an Item found in a room");
             Console.WriteLine("Type 'Use <ItemName>' to use and Item from your Inventory");
+            Console.WriteLine("Type 'X' to exit the game");
+        }
+
+        public void UserCommand()
+        {
+            string UserCommand = Console.ReadLine().ToUpper();
+            switch (UserCommand.ToUpper())
+            {
+                case "H":
+                    Guide();
+                    break;
+                case "N":
+                    Go(UserCommand);
+                    break;
+                case "S":
+                    Go(UserCommand);
+                    break;
+                case "E":
+                    Go(UserCommand);
+                    break;
+                case "W":
+                    Go(UserCommand);
+                    break;
+                case "X":
+                    Console.WriteLine("Brave Adventurer ran away.\n");
+                    Console.WriteLine("Bravely ran away away. \n");
+                    Console.WriteLine("When Danger reared it's ugly head.\n");
+                    Console.WriteLine("You bravely rutnred your tail and fled.\n");
+                    Console.WriteLine("Yes brave Adventurer turned about.\n");
+                    Console.WriteLine("And gallantly he chickened out");
+                    Game.Quit(0);
+                    break;         
+            }
+        }
+
+        public void Go(string UserCommand)
+        {
+
         }
 
         public void StartGame()
         {
-
 
         }
 
@@ -41,9 +78,9 @@ namespace CastleGrimtol.Project
         {
             //----------This section is for each Room and the access they each have----------\\
 
-            Room EntryHallway = new Room("Entry Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see a passage to the ['North', 'South'] and straight ahead to the ['East'] is an open archway.  This appears to lead to what appears to be an open Courtyard");
-            Room SouthHallway = new Room("South Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see an open archway to the ['North'] halfway down the hall and a door straight ahead to the you see a door");
-            Room NorthHallway = new Room("North Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see a set of closed double doors further down the hall to the ['North'].  There is also a set of stairs to the ['East'] that lead upwards");
+            Room EntryHallway = new Room("Entry Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see a passage to the ['N', 'S'] and straight ahead to the ['E'] is an open archway.  This appears to lead to what appears to be an open Courtyard");
+            Room SouthHallway = new Room("South Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see an open archway to the ['N'] halfway down the hall and a door straight ahead to the you see a door");
+            Room NorthHallway = new Room("North Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see a set of closed double doors further down the hall to the ['N'].  There is also a set of stairs to the ['E'] that lead upwards");
             Room Barracks = new Room("Barracks", "You see a room with several sleeping guards, The room smells of sweaty men. You see a bed that appears to be empty and there are several guard uniforms ['Guard Uniform'] tossed about");
             Room Courtyard = new Room("Courtyard", "You step into the large castle courtyard there is a flowing fountain in the middle of the grounds and a few guards patrolling the area");
             Room CaptainsQuarters = new Room("Captain's Quarters", "As you approach the captains Quarters you swallow hard and notice your lips are dry, Stepping into the room you see a few small tables and maps of the countryside sprawled out.");
@@ -122,8 +159,8 @@ namespace CastleGrimtol.Project
             Console.WriteLine("These dark times have left us with one final course of action. We must cut the head off of the snake by assasinating the Dark Lord of Grimtol.");
             Console.WriteLine("Our sources have identified a small tunnel that leads into the rear of the castle.\n");
             Console.WriteLine("Once you sneak through the tunnel you will need to find a way to disguise yourself and kill the Dark Lord. We don't know exactly how so you'll need to use your wit and cunning to think of something.\n");
-            Console.WriteLine("Good Luck brave one.")
-            
+            Console.WriteLine("Good Luck brave one.");
+
 
 
 
@@ -136,7 +173,7 @@ namespace CastleGrimtol.Project
             CurrentRoom = EntryHallway;
         }
 
-   
+
 
         public void TakeItem(string itemName)
         {
