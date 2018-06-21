@@ -9,6 +9,8 @@ namespace CastleGrimtol.Project
         public Player CurrentPlayer { get; set; }
         public bool Playing { get; set; }
 
+        public bool prisonerReleased {get; set;}
+
         //----------This is the game guide section----------\\
         public void Guide()
         {
@@ -25,28 +27,44 @@ namespace CastleGrimtol.Project
         //Takes in the players command inputs
         public void UserCommand()
         {
-            string UserCommand = Console.ReadLine().ToUpper();
-            switch (UserCommand.ToUpper())
+            string input = Console.ReadLine().ToUpper();
+            string input1 = input.Split(" ")[0];
+            string input2 = "";
+            if (input.Split(" ").Length > 1)
             {
+                input2 = input.Split(" ")[1];
+            }
+
+            switch (input1.ToUpper())
+            {
+                case "HELP":
                 case "H":
                     Guide();
                     break;
+                case "NORTH":
                 case "N":
-                    Go(UserCommand);
+                    CurrentRoom = CurrentRoom.ChangeRoom("north");
+                    Look();
+                    //if CurrentRoom.Name != Barracks
+                        //if  !CurrentPlayer.Uniform
+                            //Lose game
                     break;
                 case "S":
-                    Go(UserCommand);
+
                     break;
                 case "E":
-                    Go(UserCommand);
+
                     break;
                 case "W":
-                    Go(UserCommand);
+
                     break;
-                case "take":
-                    TakeItem();
+                case "TAKE":
+                    if (input2.Length > 0)
+                    {
+                        TakeItem(input2);
+                    }
                     break;
-                case "Use":
+                case "USE":
                     UseItem();
                     break;
                 case "X":
@@ -56,8 +74,8 @@ namespace CastleGrimtol.Project
                     Console.WriteLine("You bravely turnred your tail and fled.\n");
                     Console.WriteLine("Yes brave Adventurer turned about.\n");
                     Console.WriteLine("And gallantly you chickened out");
-                    Game.Quit(0);
-                    break;         
+                    Quit();
+                    break;
             }
         }
 
@@ -144,32 +162,33 @@ namespace CastleGrimtol.Project
             //Dungeon
             Dungeon.Items.Add(Lock);
 
+            //----------Resetting the game back to the start----------\\
+            CurrentPlayer = new Player("Boy");
+            Playing = true;
+            CurrentRoom = EntryHallway;
+        }
+
+        public void Look(){
+            //if room dugeon && prisonerReleased
+                //print custom room description
+                //console writeline As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see what the remains of a previous prisoner.
+            
+            Console.WriteLine(CurrentRoom.Description);
+        }
+
+        public void Play()
+        {
+            Setup();
             Console.WriteLine("Brave Young Warrior our forces are failing and the enemy grows stronger everyday.  I fear if we don't act now our people will be driven from their homes.");
             Console.WriteLine("These dark times have left us with one final course of action. We must cut the head off of the snake by assasinating the Dark Lord of Grimtol.");
             Console.WriteLine("Our sources have identified a small tunnel that leads into the rear of the castle.\n");
             Console.WriteLine("Once you sneak through the tunnel you will need to find a way to disguise yourself and kill the Dark Lord. We don't know exactly how so you'll need to use your wit and cunning to think of something.\n");
             Console.WriteLine("Good Luck brave one.");
 
-
-
-
-
-
-
-            //----------Resetting the game back to the start----------\\
-
-            Playing = true;
-            CurrentRoom = EntryHallway;
-        }
-
-        public void Play()
-        {
-            Setup();
-
-        }
-        public void Go(string UserCommand)
-        {
-        
+            while (Playing)
+            {
+                UserCommand();
+            }
 
         }
 
@@ -198,7 +217,11 @@ namespace CastleGrimtol.Project
             Item item = CurrentPlayer.Inventory.Find(Item => Item.Name.ToLower() == itemName);
             if (item != null)
             {
-
+                //if itemname == uniform
+                    //CurrentPlayer.Uniform = !CurrentPlayer.Uniform
+                //if itemname == key && currentroom.name == dungeon
+                    //
+                    
             }
 
         }

@@ -8,6 +8,7 @@ namespace CastleGrimtol.Project
         public string Name { get; set; }
         public int Score { get; set; }
         public List<Item> Inventory { get; set; }
+        public bool Uniform { get; set; }
 
         public Player(string name)
         {

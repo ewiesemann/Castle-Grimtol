@@ -4,7 +4,6 @@ namespace CastleGrimtol.Project
 {
     public class Room : IRoom
     {
-        private string v;
 
         public string Name { get; set; }
         public string Description { get; set; }
@@ -23,9 +22,14 @@ namespace CastleGrimtol.Project
             Items.Add(item);
         }
 
-        public Room(string v)
+        public Room ChangeRoom(string direction)
         {
-            this.v = v;
+            if (Directions.ContainsKey(direction))
+            {
+                return Directions[direction];
+            }
+            System.Console.WriteLine("Invalid Direction");
+            return this;
         }
 
         public void UseItem(Item item)
