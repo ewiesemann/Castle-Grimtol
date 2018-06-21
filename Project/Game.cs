@@ -136,9 +136,7 @@ namespace CastleGrimtol.Project
 
         public void TakeItem(string itemName)
         {
-            //check the room for the item using .find method
-            //if found add to inventory and remove from room
-            //if not found return invalid item
+
             Item item = CurrentRoom.Items.Find(Item => Item.Name.ToLower() == itemName);
             if (item != null)
             {
