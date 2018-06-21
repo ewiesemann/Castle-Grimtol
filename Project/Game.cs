@@ -100,17 +100,9 @@ namespace CastleGrimtol.Project
             //Barracks
             Item Uniform = new Item("guard uniform", "This would make a great disguise!");
             Item Bed = new Item("bed", "A good place to hide and possibly blend in.");
-<<<<<<< HEAD
 
             //Captain's Quarters
             Item Key = new Item("key", "Not sure what this unlocks, but a good idea to hold on to it.");
-=======
-
-
-            //Captain's Quarters
-            Item Key = new Item("key", "Not sure what this unlocks, but a good idea to hold on to it.");
-
->>>>>>> b83c426bcc991debe48ac3a9209bc8443d087576
 
             //Dungeon
             Item Lock = new Item("lock", "This sure looks like that key you found will unlock this.");
