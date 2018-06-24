@@ -45,9 +45,6 @@ namespace CastleGrimtol.Project
                 case "N":
                     CurrentRoom = CurrentRoom.ChangeRoom("north");
                     Look();
-                    //if CurrentRoom.Name != Barracks
-                    //if  !CurrentPlayer.Uniform
-                    //Lose game
                     break;
                 case "SOUTH":
                 case "S":
@@ -57,19 +54,25 @@ namespace CastleGrimtol.Project
                 case "EAST":
                 case "E":
                     CurrentRoom = CurrentRoom.ChangeRoom("east");
+                    Look();
                     break;
-                    case "WEST":
+                case "WEST":
                 case "W":
                     CurrentRoom = CurrentRoom.ChangeRoom("west");
+                    Look();
                     break;
                 case "TAKE":
+                case "T":
                     if (input2.Length > 0)
                     {
                         TakeItem(input2);
                     }
                     break;
                 case "USE":
-                    UseItem();
+                    //UseItem();
+                    break;
+                case "R":
+                    Reset();
                     break;
                 case "X":
                     Console.WriteLine("Brave Adventurer ran away.\n");
@@ -82,7 +85,6 @@ namespace CastleGrimtol.Project
                     break;
             }
         }
-
 
         //Sets up the initial game with Rooms and Items and starting point
         public void Setup()
@@ -174,21 +176,29 @@ namespace CastleGrimtol.Project
 
         public void Look()
         {
-            //if room dugeon && prisonerReleased
-            //print custom room description
-            //console writeline As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see what the remains of a previous prisoner.
-
-            Console.WriteLine(CurrentRoom.Description);
+            if (CurrentRoom.Name != "Barracks" && !CurrentPlayer.Uniform)
+            {
+                Console.WriteLine("As you enter you see a guard approaching you. (GUARD) Wat?!?  Who the blazes are you? Quickly he raises the alarm and several men turn towards you. Quick Jenkins sieze him.... Jenkins a bit over-zelous swings his sword cleaving you in half...\n");
+                Console.WriteLine("Press ['R'] to restart the game");
+                
+            }else{
+                Console.WriteLine(CurrentRoom.Description);
+            }
+            
+        
         }
 
         public void Play()
         {
+            Console.Clear();
             Setup();
-            Console.WriteLine("Brave Young Warrior our forces are failing and the enemy grows stronger everyday.  I fear if we don't act now our people will be driven from their homes.");
-            Console.WriteLine("These dark times have left us with one final course of action. We must cut the head off of the snake by assasinating the Dark Lord of Grimtol.");
-            Console.WriteLine("Our sources have identified a small tunnel that leads into the rear of the castle.\n");
-            Console.WriteLine("Once you sneak through the tunnel you will need to find a way to disguise yourself and kill the Dark Lord. We don't know exactly how so you'll need to use your wit and cunning to think of something.\n");
-            Console.WriteLine("Good Luck brave one.");
+            Console.WriteLine("Brave Young Warrior our forces are failing and the enemy grows stronger everyday.  I fear if we don't act now our people will be driven from their homes.  These dark times have left us with one final course of action. We must cut the"); 
+            Console.WriteLine("head off of the snake by assasinating the Dark Lord of Grimtol.\n");
+            Console.WriteLine("Our assassin has not returned from the castle and we need you to find out what happened to him.\n");
+            Console.WriteLine("Enter the castle through the back entrance and discover his fate.\n");
+            Console.WriteLine("Good Luck brave one.\n");
+
+            Console.WriteLine(CurrentRoom.Description);
 
             while (Playing)
             {
@@ -232,6 +242,7 @@ namespace CastleGrimtol.Project
         }
 
         //Leaving the game
+
         public void Quit()
         {
             Playing = false;
@@ -240,7 +251,7 @@ namespace CastleGrimtol.Project
         //Resets the game back to the intial setup and restarts it
         public void Reset()
         {
-            Setup();
+            Play();
 
         }
 
