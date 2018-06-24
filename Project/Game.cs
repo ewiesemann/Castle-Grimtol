@@ -169,7 +169,7 @@ namespace CastleGrimtol.Project
             Dungeon.Items.Add(Lock);
 
             //----------Resetting the game back to the start----------\\
-            CurrentPlayer = new Player("Boy");
+            CurrentPlayer = new Player("Hero");
             Playing = true;
             CurrentRoom = EntryHallway;
         }
@@ -210,7 +210,6 @@ namespace CastleGrimtol.Project
         //This sets up how a player can pick up an item and add to inventory
         public void TakeItem(string itemName)
         {
-
             Item item = CurrentRoom.Items.Find(Item => Item.Name.ToLower() == itemName);
             if (item != null)
             {
@@ -229,15 +228,15 @@ namespace CastleGrimtol.Project
         public void UseItem(string itemName)
         {
             //Check to make sure item is in inventory
-            Item item = CurrentPlayer.Inventory.Find(Item => Item.Name.ToLower() == itemName);
-            if (item != null)
-            {
-                //if itemname == uniform
-                //CurrentPlayer.Uniform = !CurrentPlayer.Uniform
-                //if itemname == key && currentroom.name == dungeon
-                //
+            // Item item = CurrentPlayer.Inventory.Find(Item => Item.Name.ToLower() == itemName);
+            // if (item != null)
+            // {
+            //     if itemname == uniform;
+            //     CurrentPlayer.Uniform = !CurrentPlayer.Uniform;
+            //     if itemname == key && currentroom.name == dungeon;
+                
 
-            }
+            //}
 
         }
 
