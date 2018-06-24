@@ -9,7 +9,7 @@ namespace CastleGrimtol.Project
         public Player CurrentPlayer { get; set; }
         public bool Playing { get; set; }
 
-        public bool prisonerReleased {get; set;}
+        public bool prisonerReleased { get; set; }
 
         //----------This is the game guide section----------\\
         public void Guide()
@@ -46,17 +46,21 @@ namespace CastleGrimtol.Project
                     CurrentRoom = CurrentRoom.ChangeRoom("north");
                     Look();
                     //if CurrentRoom.Name != Barracks
-                        //if  !CurrentPlayer.Uniform
-                            //Lose game
+                    //if  !CurrentPlayer.Uniform
+                    //Lose game
                     break;
+                case "SOUTH":
                 case "S":
-
+                    CurrentRoom = CurrentRoom.ChangeRoom("south");
+                    Look();
                     break;
+                case "EAST":
                 case "E":
-
+                    CurrentRoom = CurrentRoom.ChangeRoom("east");
                     break;
+                    case "WEST":
                 case "W":
-
+                    CurrentRoom = CurrentRoom.ChangeRoom("west");
                     break;
                 case "TAKE":
                     if (input2.Length > 0)
@@ -88,11 +92,11 @@ namespace CastleGrimtol.Project
             Room EntryHallway = new Room("Entry Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see a passage to the ['N', 'S'] and straight ahead to the ['E'] is an open archway.  This appears to lead to what appears to be an open Courtyard");
             Room SouthHallway = new Room("South Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see an open archway to the ['N'] halfway down the hall and a door straight ahead to the you see a door");
             Room NorthHallway = new Room("North Hallway", "You find yourself in a small hall there doesn't appear to be anything of interest here. You see a set of closed double doors further down the hall to the ['N'].  There is also a set of stairs to the ['E'] that lead upwards");
-            Room Barracks = new Room("Barracks", "You see a room with several sleeping guards, The room smells of sweaty men. You see a bed that appears to be empty and there are several guard uniforms ['Guard Uniform'] tossed about");
+            Room Barracks = new Room("Barracks", "You see a room with several sleeping guards, The room smells of sweaty men. You see a bed that appears to be empty and there are several guard uniforms ['Guard Uniform'] tossed about.  There are no other doors in this room except the one you can in through.");
             Room Courtyard = new Room("Courtyard", "You step into the large castle courtyard there is a flowing fountain in the middle of the grounds and a few guards patrolling the area");
             Room CaptainsQuarters = new Room("Captain's Quarters", "As you approach the captains Quarters you swallow hard and notice your lips are dry, Stepping into the room you see a few small tables and maps of the countryside sprawled out.");
             Room GuardRoom = new Room("Guard Room", "Pushing open the door of the guard room you look around and notice the room is empty, There are a few small tools in the corner and a chair propped against the wall near the that likely leads to the dungeon.");
-            Room Dungeon = new Room("Dungeon", "As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see what the remains of a previous prisoner.");
+            Room Dungeon = new Room("Dungeon", "As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see a series of cells.  Checking each cell you see they have the remains of previous prisoners except the last one.  This room has a single prisoner in it and upon seeing you begs for you to release him.  The cell door is locked with a single lock and needs a ['key'] to open.");
             Room SquireRoom = new Room("Squire Room", "As you finish climbing the stairs to the squire tower you see a messenger nestled in his bed. His messenger overcoat is hanging from his bed post.");
             Room WarRoom = new Room("War Room", "Steping into the war room you see several maps spread across tables. On the maps many of the villages have been marked for purification. You also notice several dishes of prepared food to the side perhaps the war council will be meeting soon");
             Room ThroneRoom = new Room("Throne Room", "As you unlock the door and swing it wide you see an enormous hall stretching out before you. At the opposite end of the hall sitting on his throne you see the dark lord. The Dark Lord shouts at you demanding why you dared to interrupt him during his Ritual of Evil Summoning... Dumbfounded you mutter an incoherent response. Becoming more enraged the Dark Lord complains that you just ruined his concentration and he will now have to start the ritual over... Quickly striding towards you he smirks at least I know have a sacrificial volunteer. Plunging his jewel encrusted dagger into your heart your world slowly fades away.");
@@ -168,11 +172,12 @@ namespace CastleGrimtol.Project
             CurrentRoom = EntryHallway;
         }
 
-        public void Look(){
+        public void Look()
+        {
             //if room dugeon && prisonerReleased
-                //print custom room description
-                //console writeline As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see what the remains of a previous prisoner.
-            
+            //print custom room description
+            //console writeline As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see what the remains of a previous prisoner.
+
             Console.WriteLine(CurrentRoom.Description);
         }
 
@@ -218,10 +223,10 @@ namespace CastleGrimtol.Project
             if (item != null)
             {
                 //if itemname == uniform
-                    //CurrentPlayer.Uniform = !CurrentPlayer.Uniform
+                //CurrentPlayer.Uniform = !CurrentPlayer.Uniform
                 //if itemname == key && currentroom.name == dungeon
-                    //
-                    
+                //
+
             }
 
         }
