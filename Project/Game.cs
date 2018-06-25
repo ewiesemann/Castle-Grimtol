@@ -20,11 +20,12 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Type 'W' to go West");
             Console.WriteLine("Type 'Take <ItemName>' to pick up an Item found in a room");
             Console.WriteLine("Type 'Use <ItemName>' to use and Item from your Inventory");
+            Console.WriteLine("Type 'LOOK' to print the room description again");
             //Console.WriteLine("Press 'I' to access your inventory");
             Console.WriteLine("Type 'X' to exit the game");
         }
 
-        //Takes in the players command inputs
+        //----------Takes in the players command inputs----------\\
         public void UserCommand()
         {
             string input = Console.ReadLine().ToUpper();
@@ -81,11 +82,16 @@ namespace CastleGrimtol.Project
                         UseItem(input2);
                     }
                     break;
-                case "I":
-                    {
-                        ShowInventory();
-                    }
-                    break;
+                // case "I":
+                //     {
+                //         ShowInventory();
+                //     }
+                //     break;
+                case "LOOK":
+                {
+                    Look();
+                }
+                break;
                 case "R":
                     Reset();
                     break;
@@ -98,17 +104,16 @@ namespace CastleGrimtol.Project
                     Console.WriteLine("Yes brave Adventurer turned about.\n");
                     Console.WriteLine("And gallantly you chickened out. \n");
                     Console.WriteLine("Please press ['R'] to restart the game.");
-                    
                     break;
             }
         }
 
-        private void ShowInventory()
-        {
-            throw new NotImplementedException();
-        }
+        // private void ShowInventory()
+        // {
+        //     throw new NotImplementedException();
+        // }
 
-        //Sets up the initial game with Rooms and Items and starting point
+        //----------Sets up the initial game with Rooms and Items and starting point----------\\
         public void Setup()
         {
             //----------This section is for each Room and the access they each have----------\\
@@ -184,6 +189,7 @@ namespace CastleGrimtol.Project
             CurrentRoom = EntryHallway;
         }
 
+        //----------Allows players to reprint the room description----------\\
         public void Look()
         {
             if (CurrentRoom.Name != "Barracks" && !CurrentPlayer.Uniform)
@@ -200,20 +206,20 @@ namespace CastleGrimtol.Project
 
         }
 
+        //----------Starts the game----------\\
         public void Play()
         {
             Console.Clear();
             Console.WriteLine("--------------------Welcome to Castle Grimtol--------------------\n");
             Setup();
-            Console.WriteLine("Brave Young Warrior our forces are failing and the enemy grows stronger everyday.  I fear if we don't act now our people will be driven from their homes.  These dark times have left us with one final course of action. We must cut the");
-            Console.WriteLine("head off of the snake by assasinating the Dark Lord of Grimtol.\n");
+            Console.WriteLine("Brave Young Warrior our forces are failing and the enemy grows stronger everyday.  I fear if we don't act now our people will be driven from their homes.  These dark times have left us with one final course of action. We must cut the head off of the snake by assasinating the Dark Lord of Grimtol.\n");
             Console.WriteLine("Our assassin has not returned from the castle and we need you to find out what happened to him.\n");
             Console.WriteLine("Enter the castle through the back entrance and discover his fate.  We believe the barracks are to the ['N'] once you are inside.  Find that room and take a guard uniform to disguise yourself with.\n");
             Console.WriteLine("Good Luck brave one.\n");
             Console.WriteLine("Press ['H'] to access the game menu at any time, or ['X'] to leave the game.\n");
 
             Console.WriteLine(CurrentRoom.Description);
-            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("What would you like to do?\n");
 
             while (Playing)
             {
@@ -222,7 +228,7 @@ namespace CastleGrimtol.Project
 
         }
 
-        //This sets up how a player can pick up an item and add to inventory
+        //----------This sets up how a player can pick up an item and add to inventory----------\\
 
         public void TakeItem(string itemName)
         {
@@ -240,7 +246,7 @@ namespace CastleGrimtol.Project
             }
         }
 
-        //This is for how a player uses and item from their inventory
+        //----------This is for how a player uses and item from their inventory----------\\
 
         public void UseItem(string itemName)
         {
@@ -270,14 +276,14 @@ namespace CastleGrimtol.Project
             ;
         }
 
-        //Leaving the game
+        //----------Leaving the game----------\\
 
         public void Quit()
         {
             Playing = false;
         }
 
-        //Resets the game back to the intial setup and restarts it
+        //----------Resets the game back to the intial setup and restarts it----------\\
         public void Reset()
         {
             Play();
