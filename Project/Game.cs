@@ -250,7 +250,10 @@ namespace CastleGrimtol.Project
 
             if (CurrentRoom.Items.Contains(item))
             {
-                System.Console.WriteLine($"You picked up {item.Name}.  To equip this item make sure you ['use'] it so you are not discovered.");
+                System.Console.WriteLine($"You picked up {item.Name}.  To equip this item make sure you ['use'] it so you are not discovered.\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("What would you like to do?\n");
+                Console.ForegroundColor = ConsoleColor.White;
                 CurrentPlayer.Inventory.Add(item);
                 CurrentRoom.Items.Remove(item);
             }
@@ -275,6 +278,9 @@ namespace CastleGrimtol.Project
 
                 Console.WriteLine("You quickly slip the uniform on!  Now to find the assassin.\n");
                 Console.WriteLine("You have to go back the way you came to the ['S'].\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("What would you like to do?\n");
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
 
