@@ -20,7 +20,6 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Type 'W' to go West");
             Console.WriteLine("Type 'Take <ItemName>' to pick up an Item found in a room");
             Console.WriteLine("Type 'Use <ItemName>' to use and Item from your Inventory");
-            Console.WriteLine("Tupe 'I' to show your inventory");
             Console.WriteLine("Type 'X' to exit the game");
         }
 
@@ -87,13 +86,15 @@ namespace CastleGrimtol.Project
                     Reset();
                     break;
                 case "X":
+                Console.Clear();
                     Console.WriteLine("Brave Adventurer ran away.\n");
                     Console.WriteLine("Bravely ran away away. \n");
                     Console.WriteLine("When Danger reared it's ugly head.\n");
                     Console.WriteLine("You bravely turnred your tail and fled.\n");
                     Console.WriteLine("Yes brave Adventurer turned about.\n");
-                    Console.WriteLine("And gallantly you chickened out");
-                    Quit();
+                    Console.WriteLine("And gallantly you chickened out. \n");
+                    Console.WriteLine("Please press ['R'] to restart the game.");
+                    
                     break;
             }
         }
@@ -108,16 +109,16 @@ namespace CastleGrimtol.Project
         {
             //----------This section is for each Room and the access they each have----------\\
 
-            Room EntryHallway = new Room("Entry Hallway", "You find yourself in a small hall and there doesn't appear to be anything of interest here. You see a passage to the ['N'], the ['S'] and straight ahead to the ['E'] is an open archway.  This appears to lead to an open Courtyard");
-            Room SouthHallway = new Room("South Hallway", "You find yourself in a small hall and there doesn't appear to be anything of interest here. You see an open archway to the ['N'] halfway down the hall and a door straight ahead to the ['E'] you see a door");
-            Room NorthHallway = new Room("North Hallway", "You find yourself in a small hall and there doesn't appear to be anything of interest here. You see a set of closed double doors further down the hall to the ['N'].  There is also a set of stairs to the ['E'] that lead upwards");
-            Room Barracks = new Room("Barracks", "You see a room with several sleeping guards, The room smells of sweaty men. You see several guard uniforms ['Guard Uniform'] tossed about the floor.  There are no other doors in this room except the one you can in through.");
-            Room Courtyard = new Room("Courtyard", "You step into the large castle courtyard and see a flowing fountain in the middle of the grounds and a few guards patrolling the area");
-            Room CaptainsQuarters = new Room("Captain's Quarters", "As you approach the Captains Quarters you swallow hard and notice your lips are dry, Stepping into the room you see a few small tables and maps of the countryside sprawled out.");
-            Room GuardRoom = new Room("Guard Room", "Pushing open the door of the guard room you look around and notice the room is empty, There are a few small tools in the corner and a chair propped against the wall near a door that likely leads to the dungeon.");
-            Room Dungeon = new Room("Dungeon", "As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see a series of cells.  Checking each cell you see they have the remains of previous prisoners except the last one.  In this cell you see the assassin you have been looking for.  Searching the area you find on a hook the keys to the cells.  Opening the cell he thanks you for rescuing him.  He tells you he is going to finish his mission and for you to return to the village to let everyone know.");
-            Room SquireRoom = new Room("Squire Room", "As you finish climbing the stairs to the squire tower you see a messenger nestled in his bed. His messenger overcoat is hanging from his bed post.");
-            Room WarRoom = new Room("War Room", "Steping into the war room you see several maps spread across tables. On the maps many of the villages have been marked for purification. You also notice several dishes of prepared food to the side perhaps the war council will be meeting soon");
+            Room EntryHallway = new Room("Entry Hallway", "You find yourself in a small hall and there doesn't appear to be anything of interest here. You see a dorr to your ['N'], and to the  ['S'].  Straight ahead to the ['E'] is an open archway.  This appears to lead to an open Courtyard.  You can see several guards involved in combat drills.  You need to be very careful and quiet.");
+            Room SouthHallway = new Room("South Hallway", "You find yourself in a small hall and there doesn't appear to be anything of interest here. You see an open archway to the ['N'] halfway down the hall and a door straight ahead to the ['E'] you see a door.  As you move down the hall you see that the passage to the ['N'] leads to the same Courtyard.k");
+            Room NorthHallway = new Room("North Hallway", "You find yourself in a small hall and there doesn't appear to be anything of interest here. You see a set of closed double doors further down the hall to the ['N'].  There is also a set of stairs to the ['E'] that lead upwards.");
+            Room Barracks = new Room("Barracks", "You see a room with several sleeping guards laying in beds and on the floor. The room smells of sweat and stale mead.  You see several guard uniforms ['Guard Uniform'] tossed about the floor.  There are no other doors in this room except the one you can in through to the ['S'].");
+            Room Courtyard = new Room("Courtyard", "You step into the large castle courtyard and see a flowing fountain in the middle of the grounds and a few guards doing combat drills.  The Captain of the Guard is shouting orders and seems to pay no attention to you.  There are archways leading out of this area to the ['N'], ['S'], and ['W'].");
+            Room CaptainsQuarters = new Room("Captain's Quarters", "As you approach the Captains Quarters you swallow hard and notice your lips are dry.  Stepping into the room you see a few small tables and maps of the countryside sprawled out.  There are two doors leading out of this room.  One to the ['N'} and one to the ['E'}.");
+            Room GuardRoom = new Room("Guard Room", "Pushing open the door of the guard room you look around and notice the room is empty.  The must all be in the Courtyard doing drills. There is a door to the ['N'] with a chair next to it.  You wonder if this door leads to the dungeon.");
+            Room Dungeon = new Room("Dungeon", "As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see a series of cells.  Checking each cell you see they have the remains of previous prisoners except the last one.  In this cell you see the assassin you have been looking for.  Searching the area you find on a hook the keys to the cells.  Opening the cell he thanks you for rescuing him.  He tells you he is going to finish his mission and for you to return to the village to let everyone know.  Please type ['R'] to restart the game.");
+            Room SquireRoom = new Room("Squire Room", "As you finish climbing the stairs to the tower you see a messenger nestled in his bed. His messenger overcoat is hanging from his bed post.  To the ['N'} is an open door and you think you can make out a large table with several items across it's top.");
+            Room WarRoom = new Room("War Room", "Steping into the room you see several maps spread across the large table. On the maps many of the villages have been marked for purification.   Taking a closer look you see that your villiage is marked as the next target.  You also notice several dishes of prepared food to the side perhaps the war council will be meeting soon.  The only way out of this room is back to the ['S'].");
             Room ThroneRoom = new Room("Throne Room", "As you unlock the door and swing it wide you see an enormous hall stretching out before you. At the opposite end of the hall sitting on his throne you see the dark lord. The Dark Lord shouts at you demanding why you dared to interrupt him during his Ritual of Evil Summoning... Dumbfounded you mutter an incoherent response. Becoming more enraged the Dark Lord complains that you just ruined his concentration and he will now have to start the ritual over... Quickly striding towards you he smirks at least I know have a sacrificial volunteer. Plunging his jewel encrusted dagger into your heart your world slowly fades away.");
 
             //Entry Hallway - access to Barracks, Captain's Quarters, Courtyard
@@ -204,6 +205,7 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Our assassin has not returned from the castle and we need you to find out what happened to him.\n");
             Console.WriteLine("Enter the castle through the back entrance and discover his fate.  We believe the barracks are to the ['N'] once you are inside.  Find that room and take a guard uniform to disguise yourself with.\n");
             Console.WriteLine("Good Luck brave one.\n");
+            Console.WriteLine("Press ['H'] to access the game menu at any time, or ['X'] to leave the game.\n");
 
             Console.WriteLine(CurrentRoom.Description);
 
@@ -222,7 +224,7 @@ namespace CastleGrimtol.Project
 
             if (CurrentRoom.Items.Contains(item))
             {
-                System.Console.WriteLine($"You picked up {item.Name}");
+                System.Console.WriteLine($"You picked up {item.Name}.  To equip this item make sure you ['use'] it so you are not discovered.");
                 CurrentPlayer.Inventory.Add(item);
                 CurrentRoom.Items.Remove(item);
             }
@@ -239,7 +241,7 @@ namespace CastleGrimtol.Project
             Item item = CurrentPlayer.Inventory.Find(i => i.Name.ToUpper().Contains(itemName));
             if (item != null)
             {
-                if (itemName == "uniform") ;
+                if (itemName == "uniform") NewMethod();
                 {
                     CurrentPlayer.Uniform = !CurrentPlayer.Uniform;
                     CurrentPlayer.Inventory.Remove(item);
@@ -256,22 +258,11 @@ namespace CastleGrimtol.Project
             }
 
         }
-        //public void UseItem(string itemName)
-        //{
 
-        //Check to make sure item is in inventory
-        // Item item = CurrentPlayer.Inventory.Find(Item => Item.Name.ToLower() == itemName);
-        // if (item != null)
-        // {
-        //     if itemname == uniform;
-        //     CurrentPlayer.Uniform = !CurrentPlayer.Uniform;
-        //     if itemname == key && currentroom.name == dungeon;
-
-
-        //}
-
-        //}
-
+        private static void NewMethod()
+        {
+            ;
+        }
 
         //Leaving the game
 
