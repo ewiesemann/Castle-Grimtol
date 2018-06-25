@@ -43,21 +43,25 @@ namespace CastleGrimtol.Project
                     break;
                 case "NORTH":
                 case "N":
+                Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("north");
                     Look();
                     break;
                 case "SOUTH":
                 case "S":
+                Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("south");
                     Look();
                     break;
                 case "EAST":
                 case "E":
+                Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("east");
                     Look();
                     break;
                 case "WEST":
                 case "W":
+                Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("west");
                     Look();
                     break;
@@ -75,10 +79,10 @@ namespace CastleGrimtol.Project
                     break;
                 case "INVENTORY":
                 case "I":
-                {
-                    ShowInventory();
-                }
-                break;
+                    {
+                        ShowInventory();
+                    }
+                    break;
                 case "R":
                     Reset();
                     break;
@@ -226,21 +230,20 @@ namespace CastleGrimtol.Project
             {
                 System.Console.WriteLine("There is nothing by that name in this room.");
             }
-
-
         }
-
 
         //This is for how a player uses and item from their inventory
 
         public void UseItem(string itemName)
         {
-
             Item item = CurrentPlayer.Inventory.Find(i => i.Name.ToUpper().Contains(itemName));
-            if (CurrentPlayer.Inventory.Contains(item))
+            if (item != null)
             {
-                CurrentPlayer.Uniform = !CurrentPlayer.Uniform;
-                CurrentPlayer.Inventory.Remove(item);
+                if (itemName == "uniform") ;
+                {
+                    CurrentPlayer.Uniform = !CurrentPlayer.Uniform;
+                    CurrentPlayer.Inventory.Remove(item);
+                }
 
                 Console.WriteLine("You quickly slip the uniform on!  Now to find the assassin.\n");
                 Console.WriteLine("You have to go back the way you came to the ['S'].\n");
@@ -268,7 +271,7 @@ namespace CastleGrimtol.Project
         //}
 
         //}
-        
+
 
         //Leaving the game
 
