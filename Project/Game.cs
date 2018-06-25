@@ -9,7 +9,6 @@ namespace CastleGrimtol.Project
         public Player CurrentPlayer { get; set; }
         public bool Playing { get; set; }
 
-        public bool prisonerReleased { get; set; }
 
         //----------This is the game guide section----------\\
         public void Guide()
@@ -21,6 +20,7 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Type 'W' to go West");
             Console.WriteLine("Type 'Take <ItemName>' to pick up an Item found in a room");
             Console.WriteLine("Type 'Use <ItemName>' to use and Item from your Inventory");
+            Console.WriteLine("Tupe 'I' to show your inventory");
             Console.WriteLine("Type 'X' to exit the game");
         }
 
@@ -63,27 +63,22 @@ namespace CastleGrimtol.Project
                     break;
                 case "TAKE":
                 case "T":
-                    if (input.Length == 1)
-                    {
-                        System.Console.WriteLine("Please enter the item name after the take command.\n");
-                    }
-                    else
                     {
                         TakeItem(input2);
                     }
                     break;
                 case "USE":
                 case "use":
-                    Console.Clear();
-                    if (input.Length == 1)
                     {
-                        System.Console.WriteLine("You must enter an item name alongside the 'use' command");
-                    }
-                    else
-                    {
-                        UseItem(input1);
+                        UseItem(input2);
                     }
                     break;
+                case "INVENTORY":
+                case "I":
+                {
+                    ShowInventory();
+                }
+                break;
                 case "R":
                     Reset();
                     break;
@@ -97,6 +92,11 @@ namespace CastleGrimtol.Project
                     Quit();
                     break;
             }
+        }
+
+        private void ShowInventory()
+        {
+            throw new NotImplementedException();
         }
 
         //Sets up the initial game with Rooms and Items and starting point
@@ -214,7 +214,7 @@ namespace CastleGrimtol.Project
 
         public void TakeItem(string itemName)
         {
-            Item item = CurrentRoom.Items.Find(i => i.Name.ToLower().Contains(itemName));
+            Item item = CurrentRoom.Items.Find(i => i.Name.ToUpper().Contains(itemName));
 
             if (CurrentRoom.Items.Contains(item))
             {
@@ -236,15 +236,17 @@ namespace CastleGrimtol.Project
         public void UseItem(string itemName)
         {
 
-            Item item = CurrentPlayer.Inventory.Find(i => i.Name.ToLower().Contains(itemName));
+            Item item = CurrentPlayer.Inventory.Find(i => i.Name.ToUpper().Contains(itemName));
             if (CurrentPlayer.Inventory.Contains(item))
             {
-                if (item.Name == "guard uniform")
-                {
-                    Console.Write("You quickly slip the uniform on!");
-                }
-                
+                CurrentPlayer.Uniform = !CurrentPlayer.Uniform;
+                CurrentPlayer.Inventory.Remove(item);
+
+                Console.WriteLine("You quickly slip the uniform on!  Now to find the assassin.\n");
+                Console.WriteLine("You have to go back the way you came to the ['S'].\n");
             }
+
+
             else
             {
                 System.Console.WriteLine("You don't have that item in your inventory.\n");
@@ -266,6 +268,7 @@ namespace CastleGrimtol.Project
         //}
 
         //}
+        
 
         //Leaving the game
 
