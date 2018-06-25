@@ -267,7 +267,7 @@ namespace CastleGrimtol.Project
             Item item = CurrentPlayer.Inventory.Find(i => i.Name.ToUpper().Contains(itemName));
             if (item != null)
             {
-                if (itemName == "uniform") NewMethod();
+                if (itemName == "uniform") CreateItem();
                 {
                     CurrentPlayer.Uniform = !CurrentPlayer.Uniform;
                     CurrentPlayer.Inventory.Remove(item);
@@ -285,9 +285,9 @@ namespace CastleGrimtol.Project
 
         }
 
-        private static void NewMethod()
+        private static void CreateItem()
         {
-            ;
+            Item uniform = new Item("Uniform");
         }
 
         //----------Leaving the game----------\\
