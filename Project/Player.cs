@@ -8,7 +8,7 @@ namespace CastleGrimtol.Project
         public string Name { get; set; }
         public int Score { get; set; }
         public List<Item> Inventory { get; set; }
-        public bool Uniform { get; set; }
+        public bool Uniform { get; internal set; }
 
         public Player(string name)
         {
@@ -21,5 +21,9 @@ namespace CastleGrimtol.Project
             Console.WriteLine($@"You currently have {Inventory[0].Name} | {Inventory[0].Description}");
         }
 
+        internal void Add(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
