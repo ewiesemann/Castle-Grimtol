@@ -44,31 +44,39 @@ namespace CastleGrimtol.Project
                     break;
                 case "NORTH":
                 case "N":
-                Console.Clear();
+                    Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("north");
                     Look();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("What do you do next?");
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
                 case "SOUTH":
                 case "S":
-                Console.Clear();
+                    Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("south");
-                    Console.WriteLine("What do you do next?");
                     Look();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("What do you do next?");
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
                 case "EAST":
                 case "E":
-                Console.Clear();
+                    Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("east");
-                    Console.WriteLine("What do you do next?");
                     Look();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("What do you do next?");
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
                 case "WEST":
                 case "W":
-                Console.Clear();
+                    Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("west");
-                    Console.WriteLine("What do you do next?");
                     Look();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("What do you do next?");
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
                 case "TAKE":
                 case "T":
@@ -88,15 +96,15 @@ namespace CastleGrimtol.Project
                 //     }
                 //     break;
                 case "LOOK":
-                {
-                    Look();
-                }
-                break;
+                    {
+                        Look();
+                    }
+                    break;
                 case "R":
                     Reset();
                     break;
                 case "X":
-                Console.Clear();
+                    Console.Clear();
                     Console.WriteLine("Brave Adventurer ran away.\n");
                     Console.WriteLine("Bravely ran away away. \n");
                     Console.WriteLine("When Danger reared it's ugly head.\n");
@@ -201,6 +209,9 @@ namespace CastleGrimtol.Project
             else
             {
                 Console.WriteLine(CurrentRoom.Description);
+                // Console.ForegroundColor = ConsoleColor.Yellow;
+                // Console.WriteLine("What would you like to do?\n");
+                // Console.ForegroundColor = ConsoleColor.White;
             }
 
 
@@ -219,7 +230,9 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Press ['H'] to access the game menu at any time, or ['X'] to leave the game.\n");
 
             Console.WriteLine(CurrentRoom.Description);
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("What would you like to do?\n");
+            Console.ForegroundColor = ConsoleColor.White;
 
             while (Playing)
             {
