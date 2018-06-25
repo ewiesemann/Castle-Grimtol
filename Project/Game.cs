@@ -47,7 +47,7 @@ namespace CastleGrimtol.Project
                     Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("north");
                     Look();
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("What do you do next?");
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
@@ -56,7 +56,7 @@ namespace CastleGrimtol.Project
                     Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("south");
                     Look();
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("What do you do next?");
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
@@ -65,7 +65,7 @@ namespace CastleGrimtol.Project
                     Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("east");
                     Look();
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("What do you do next?");
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
@@ -74,7 +74,7 @@ namespace CastleGrimtol.Project
                     Console.Clear();
                     CurrentRoom = CurrentRoom.ChangeRoom("west");
                     Look();
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("What do you do next?");
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
@@ -98,7 +98,7 @@ namespace CastleGrimtol.Project
                 case "LOOK":
                     {
                         Look();
-                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("What would you like to do?\n");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
@@ -207,7 +207,6 @@ namespace CastleGrimtol.Project
             {
                 Console.WriteLine("As you enter you see a guard approaching you. (GUARD) Wat?!?  Who the blazes are you? Quickly he raises the alarm and several men turn towards you. Quick Jenkins sieze him.... Jenkins a bit over-zelous swings his sword cleaving you in half.  You have died, the rebellion has failed.\n");
                 Console.WriteLine("Press ['R'] to restart the game");
-
             }
             else
             {
@@ -231,7 +230,7 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Press ['H'] to access the game menu at any time, or ['X'] to leave the game.\n");
 
             Console.WriteLine(CurrentRoom.Description);
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("What would you like to do?\n");
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -251,7 +250,7 @@ namespace CastleGrimtol.Project
             if (CurrentRoom.Items.Contains(item))
             {
                 System.Console.WriteLine($"You picked up {item.Name}.  To equip this item make sure you ['use'] it so you are not discovered.\n");
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("What would you like to do?\n");
                 Console.ForegroundColor = ConsoleColor.White;
                 CurrentPlayer.Inventory.Add(item);
@@ -278,7 +277,7 @@ namespace CastleGrimtol.Project
 
                 Console.WriteLine("You quickly slip the uniform on!  Now to find the assassin.\n");
                 Console.WriteLine("You have to go back the way you came to the ['S'].\n");
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("What would you like to do?\n");
                 Console.ForegroundColor = ConsoleColor.White;
             }
