@@ -98,6 +98,9 @@ namespace CastleGrimtol.Project
                 case "LOOK":
                     {
                         Look();
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("What would you like to do?\n");
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
                     break;
                 case "R":
@@ -209,9 +212,7 @@ namespace CastleGrimtol.Project
             else
             {
                 Console.WriteLine(CurrentRoom.Description);
-                // Console.ForegroundColor = ConsoleColor.Yellow;
-                // Console.WriteLine("What would you like to do?\n");
-                // Console.ForegroundColor = ConsoleColor.White;
+
             }
 
 
