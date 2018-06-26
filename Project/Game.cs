@@ -9,7 +9,6 @@ namespace CastleGrimtol.Project
         public Player CurrentPlayer { get; set; }
         public bool Playing { get; set; }
 
-
         //----------This is the game guide section----------\\
         public void Guide()
         {
@@ -21,7 +20,6 @@ namespace CastleGrimtol.Project
             Console.WriteLine("Type 'Take <ItemName>' to pick up an Item found in a room");
             Console.WriteLine("Type 'Use <ItemName>' to use and Item from your Inventory");
             Console.WriteLine("Type 'LOOK' to print the room description again");
-            //Console.WriteLine("Press 'I' to access your inventory");
             Console.WriteLine("Type 'X' to exit the game");
         }
 
@@ -90,17 +88,9 @@ namespace CastleGrimtol.Project
                         UseItem(input2);
                     }
                     break;
-                // case "I":
-                //     {
-                //         ShowInventory();
-                //     }
-                //     break;
                 case "LOOK":
                     {
                         Look();
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine("What would you like to do?\n");
-                        Console.ForegroundColor = ConsoleColor.White;
                     }
                     break;
                 case "R":
@@ -119,11 +109,6 @@ namespace CastleGrimtol.Project
             }
         }
 
-        // private void ShowInventory()
-        // {
-        //     throw new NotImplementedException();
-        // }
-
         //----------Sets up the initial game with Rooms and Items and starting point----------\\
         public void Setup()
         {
@@ -136,10 +121,10 @@ namespace CastleGrimtol.Project
             Room Courtyard = new Room("Courtyard", "You step into the large castle courtyard and see a flowing fountain in the middle of the grounds and a few guards doing combat drills.  The Captain of the Guard is shouting orders and seems to pay no attention to you.  There are archways leading out of this area to the ['N'], ['S'], and ['W'].\n");
             Room CaptainsQuarters = new Room("Captain's Quarters", "As you approach the Captains Quarters you swallow hard and notice your lips are dry.  Stepping into the room you see a few small tables and maps of the countryside sprawled out.  There are two doors leading out of this room.  One to the ['N'} and one to the ['E'}.\n");
             Room GuardRoom = new Room("Guard Room", "Pushing open the door of the guard room you look around and notice the room is empty.  The must all be in the Courtyard doing drills. There is a door to the ['N'] with a chair next to it.  You wonder if this door leads to the dungeon.\n");
-            Room Dungeon = new Room("Dungeon", "As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see a series of cells.  Checking each cell you see they have the remains of previous prisoners except the last one.  In this cell you see the assassin you have been looking for.  Searching the area you find on a hook the keys to the cells.  Opening the cell he thanks you for rescuing him.  He tells you he is going to finish his mission and for you to return to the village to let everyone know.  Please type ['R'] to restart the game.\n");
+            Room Dungeon = new Room("Dungeon", "As you descend the stairs to the dungeon you notice a harsh chill to the air. Landing a the base of the stairs you see a series of cells.  Checking each cell you see they have the remains of previous prisoners except the last one.  In this cell you see the assassin you have been looking for.  Searching the area you find on a hook the keys to the cells.  Opening the cell he thanks you for rescuing him.  He tells you he is going to finish his mission and for you to return to the village to let everyone know.  He runs back through the Guard Room and is gone.  You waste no time getting back out of the castle to report back to your village.\n");
             Room SquireRoom = new Room("Squire Room", "As you finish climbing the stairs to the tower you see a messenger nestled in his bed. His messenger overcoat is hanging from his bed post.  To the ['N'} is an open door and you think you can make out a large table with several items across it's top.");
             Room WarRoom = new Room("War Room", "Steping into the room you see several maps spread across the large table. On the maps many of the villages have been marked for purification.   Taking a closer look you see that your villiage is marked as the next target.  You also notice several dishes of prepared food to the side perhaps the war council will be meeting soon.  The only way out of this room is back to the ['S'].\n");
-            Room ThroneRoom = new Room("Throne Room", "As you unlock the door and swing it wide you see an enormous hall stretching out before you. At the opposite end of the hall sitting on his throne you see the dark lord. The Dark Lord shouts at you demanding why you dared to interrupt him during his Ritual of Evil Summoning... Dumbfounded you mutter an incoherent response. Becoming more enraged the Dark Lord complains that you just ruined his concentration and he will now have to start the ritual over... Quickly striding towards you he smirks at least I know have a sacrificial volunteer. Plunging his jewel encrusted dagger into your heart your world slowly fades away.  You have died, the rebellion has failed.  Please press ['R'] to restart the game.\n");
+            Room ThroneRoom = new Room("Throne Room", "As you unlock the door and swing it wide you see an enormous hall stretching out before you. At the opposite end of the hall sitting on his throne you see the dark lord. The Dark Lord shouts at you demanding why you dared to interrupt him during his Ritual of Evil Summoning... Dumbfounded you mutter an incoherent response. Becoming more enraged the Dark Lord complains that you just ruined his concentration and he will now have to start the ritual over... Quickly striding towards you he smirks at least I know have a sacrificial volunteer. Plunging his jewel encrusted dagger into your heart your world slowly fades away.\n");
 
             //Entry Hallway - access to Barracks, Captain's Quarters, Courtyard
             EntryHallway.Directions.Add("north", Barracks);
@@ -205,15 +190,38 @@ namespace CastleGrimtol.Project
         {
             if (CurrentRoom.Name != "Barracks" && !CurrentPlayer.Uniform)
             {
-                Console.WriteLine("As you enter you see a guard approaching you. (GUARD) Wat?!?  Who the blazes are you? Quickly he raises the alarm and several men turn towards you. Quick Jenkins sieze him.... Jenkins a bit over-zelous swings his sword cleaving you in half.  You have died, the rebellion has failed.\n");
-                Console.WriteLine("Press ['R'] to restart the game");
+
+
+                Console.WriteLine("As you enter you see a guard approaching you. (GUARD) Wat?!?  Who the blazes are you? Quickly he raises the alarm and several men turn towards you. Quick Jenkins sieze him.... Jenkins a bit over-zelous swings his sword cleaving you in half.\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("You have died, the rebellion has failed.\n");
+                Console.WriteLine("YOU HAVE LOST THE GAME!!!\n");
+                Console.ForegroundColor = ConsoleColor.White;
+                Quit();
             }
             else
             {
                 Console.WriteLine(CurrentRoom.Description);
 
             }
+            if (CurrentRoom.Name == "Dungeon")
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("You have set the assassin free to finish his mission.\n");
+                Console.WriteLine("YOU HAVE WON THE GAME!!!\n");
+                Console.ForegroundColor = ConsoleColor.White;
 
+                Quit();
+            }
+            if (CurrentRoom.Name == "Throne Room")
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("You have died, the rebellion has failed.\n");
+                Console.WriteLine("YOU HAVE LOST THE GAME!!!\n");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Quit();
+            }
 
         }
 
